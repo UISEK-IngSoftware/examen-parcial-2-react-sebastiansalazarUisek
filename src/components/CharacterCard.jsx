@@ -1,5 +1,5 @@
-import {Card, CardContent, CardActions, CardMedia, Button, Typography} from "@mui/material";
-
+import {Card, CardContent, CardMedia, Typography} from "@mui/material";
+import "./CharacterCard.css";
 
 export default function CharacterCard({ character }) {
     return (
@@ -24,11 +24,7 @@ export default function CharacterCard({ character }) {
             Estado: {character.status}
             </Typography>
         </CardContent>
-        <CardActions>
-            <Button size="small" disabled>
-                Ver Detalles
-            </Button>
-</CardActions>
+
     </Card>
     );
 }

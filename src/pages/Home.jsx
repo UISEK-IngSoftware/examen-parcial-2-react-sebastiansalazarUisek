@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { getCharacters } from "../services/futuramaService";
 import CharacterList from "../components/CharacterList";
+import { CircularProgress, Alert } from "@mui/material";
+import futuramaLogo from "../assets/futuramaLogo.png";
+import "./Home.css";
 
 
 function Home() {
@@ -29,16 +32,25 @@ function Home() {
     }, []);
 
     if (loading) {
-    return <h2>Cargando personajes...</h2>;
+    return <CircularProgress />;
     }
 
 if (error) {
-    return <h2>{error}</h2>;
-    }
+    return <Alert severity="error">{error}</Alert>;
+  }
+
+if (characters.length === 0) {
+    return <Alert severity="info">No se encontraron personajes.</Alert>;
+}
+
 
 return (
     <div>
-        <h1>Personajes de Futurama</h1>
+          <img
+      src={futuramaLogo}
+      alt="Futurama"
+      className="home-logo"
+      />
         <CharacterList characters={characters} />
     </div>
     );

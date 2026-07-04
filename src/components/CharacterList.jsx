@@ -1,5 +1,6 @@
 import {Grid} from "@mui/material";
 import CharacterCard from "./CharacterCard";
+import "./CharacterList.css";
 
 export default function CharacterList({ characters }) {
     return (
